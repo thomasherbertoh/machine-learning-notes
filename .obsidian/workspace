@@ -1,0 +1,111 @@
+{
+  "main": {
+    "id": "3ae1c74550568f4b",
+    "type": "split",
+    "children": [
+      {
+        "id": "5e067eecb43a9c7e",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "Unsupervised Learning.md",
+            "mode": "source"
+          }
+        },
+        "group": "d5e4e41b1589b856"
+      },
+      {
+        "id": "2eebd4c81a50b565",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "Unsupervised Learning.md",
+            "mode": "preview"
+          }
+        },
+        "group": "d5e4e41b1589b856"
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "2982849fa808dcb5",
+    "type": "split",
+    "children": [
+      {
+        "id": "8f86ca21d118e3f1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "89192e51608e5991",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "8ec2c56c5fa0e75e",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "tag:#Classification",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "afcedd4cca7b768c",
+    "type": "split",
+    "children": [
+      {
+        "id": "b8b68f24c252c540",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d21cfd2dff5694e3",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Unsupervised Learning.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "5e067eecb43a9c7e",
+  "lastOpenFiles": [
+    "Unsupervised Learning.md",
+    "Supervised Learning.md",
+    "Reinforcement Learning.md",
+    "Optional Knowledge.md",
+    "Instructors.md",
+    "Introduction.md"
+  ]
+}
