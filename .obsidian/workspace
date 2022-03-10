@@ -4,28 +4,28 @@
     "type": "split",
     "children": [
       {
-        "id": "5e067eecb43a9c7e",
+        "id": "b979daccc232ced1",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Unsupervised Learning.md",
+            "file": "Machine Learning Basics.md",
             "mode": "source"
           }
         },
-        "group": "d5e4e41b1589b856"
+        "group": "4306ba11a1939552"
       },
       {
-        "id": "2eebd4c81a50b565",
+        "id": "0e58ed1e77844ebb",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Unsupervised Learning.md",
+            "file": "Machine Learning Basics.md",
             "mode": "preview"
           }
         },
-        "group": "d5e4e41b1589b856"
+        "group": "4306ba11a1939552"
       }
     ],
     "direction": "vertical"
@@ -65,7 +65,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 186
   },
   "right": {
     "id": "afcedd4cca7b768c",
@@ -81,7 +81,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Unsupervised Learning.md",
+                "file": "Machine Learning Basics.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -99,13 +99,14 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "5e067eecb43a9c7e",
+  "active": "b979daccc232ced1",
   "lastOpenFiles": [
-    "Unsupervised Learning.md",
+    "Machine Learning Basics.md",
+    "Introduction.md",
     "Supervised Learning.md",
+    "Unsupervised Learning.md",
     "Reinforcement Learning.md",
     "Optional Knowledge.md",
-    "Instructors.md",
-    "Introduction.md"
+    "Instructors.md"
   ]
 }

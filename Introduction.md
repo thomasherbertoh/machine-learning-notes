@@ -1,6 +1,6 @@
 ---
 date created: 2022-03-08 09:57
-date updated: 2022-03-08 10:52
+date updated: 2022-03-10 08:45
 tags:
   - '#Supervised-learning'
   - '#Unsupervised-learning'
@@ -23,9 +23,9 @@ tags:
 
 ## Contents of the course
 
-- #Supervised-learning ^[[[Supervised Learning#Supervised Learning|Supervised Learning]]]
-- #Unsupervised-learning ^[[[Unsupervised Learning#Unsupervised Learning|Unsupervised Learning]]]
-- #Reinforcement-learning ^[[[Reinforcement Learning#Reinforcement Learning|Reinforcement Learning]]]
+- #Supervised-learning ^[[\[Supervised Learning#Supervised Learning|Supervised Learning]]]
+- #Unsupervised-learning ^[[\[Unsupervised Learning#Unsupervised Learning|Unsupervised Learning]]]
+- #Reinforcement-learning ^[[\[Reinforcement Learning#Reinforcement Learning|Reinforcement Learning]]]
 
 ```ad-note
 There are [[Optional Knowledge#Other Learning Techniques|other learning techniques]].
@@ -62,7 +62,7 @@ Machine learning is about predicting the future based on the past.
 ```
 
 ```ad-quote
-A computer program is said to learn from experience $E$ with respect to some class of tasks $T$ and performance measure $P$, if its performance at tasks in $T$, as measured by $P$, improves with experience $E$.
+A computer program is said to learn from experience $E$ with respect to some class of #tasks $T$ and performance measure $P$, if its performance at #tasks in $T$, as measured by $P$, improves with experience $E$.
 
 <cite>T. Mitchell</cite>
 ```
@@ -71,7 +71,7 @@ A computer program is said to learn from experience $E$ with respect to some cla
 title: TL;DR
 Machine learning is the study of algorithms that
 - improve their performance $P$
-- at some task $T$
+- at some #task $T$
 - with experience $E$
 ```
 ````
@@ -87,7 +87,7 @@ Machine learning is used when:
 Machine learning isn't always useful ^[there is no learning in calculating a payroll]
 ```
 
-A well-defined learning task is given by a triplet $<T, P, E>$.
+A well-defined learning #task is given by a triplet $<T, P, E>$.
 
 ```ad-example
 collapse:

@@ -24,6 +24,18 @@
       "title": "Idea",
       "injectColor": true,
       "noTitle": false
+    },
+    "problem": {
+      "type": "problem",
+      "color": "255, 0, 0",
+      "icon": {
+        "name": "exclamation-circle",
+        "type": "font-awesome"
+      },
+      "command": false,
+      "title": "Problem",
+      "injectColor": true,
+      "noTitle": false
     }
   },
   "syntaxHighlight": false,
