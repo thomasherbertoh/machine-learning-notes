@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Unsupervised Learning.md",
+            "file": "README.md",
             "mode": "source"
           }
         },
@@ -21,8 +21,8 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Unsupervised Learning.md",
-            "mode": "preview"
+            "file": "README.md",
+            "mode": "source"
           }
         },
         "group": "d5e4e41b1589b856"
@@ -81,7 +81,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Unsupervised Learning.md",
+                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -101,11 +101,13 @@
   },
   "active": "5e067eecb43a9c7e",
   "lastOpenFiles": [
+    "README.md",
     "Unsupervised Learning.md",
     "Supervised Learning.md",
-    "Reinforcement Learning.md",
     "Optional Knowledge.md",
+    "Introduction.md",
+    "Images/Application-unsupervised-learning.png",
     "Instructors.md",
-    "Introduction.md"
+    "Reinforcement Learning.md"
   ]
 }
