@@ -1,8 +1,8 @@
 ---
 date created: 2022-03-08 10:29
-date updated: 2022-03-08 10:53
+date updated: 2022-03-10 08:54
 tags:
-  - '#clusters.'
+  - '#clusters'
   - '#Clustering'
   - '#Dimensionality-reduction'
 ---
@@ -13,7 +13,7 @@ tags:
 Building a model using examples **without labels** that learns to predict new examples
 ```
 
-Given $T = {x_1, x_m}$ ^[no $y$ because there are no labels] output a hidden structure behind the various $x$ values, that being the #clusters.
+Given $T = {x_1, x_m}$ ^[no $y$ because there are no labels] output a hidden structure behind the various $x$ values, that being the #clusters .
 
 ## #Clustering
 
