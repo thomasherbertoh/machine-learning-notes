@@ -1,6 +1,6 @@
 ---
 date created: 2022-03-10 08:46
-date updated: 2022-03-10 11:13
+date updated: 2022-03-11 08:48
 tags:
   - '#Tasks'
   - '#task'
@@ -15,6 +15,8 @@ tags:
   - '#overfitting'
   - '#Underfitting'
   - '#Overfitting'
+  - '#Generalisation'
+  - '#Regularisation'
 ---
 
 # Machine Learning Basics
@@ -147,18 +149,28 @@ It's worth noting that it's impossible to reduce error to zero due to randomness
 
 - Avoid obtaining minimum training error
 - Reduce model capacity
-- Change the objective with a #regularisation term
+- Change the objective with a [[Machine Learning Basics#Regularisation|regularisation]] term
 - Inject noise into the learning algorithm
 - Stop the learning algorithm before convergence
+- Increase the amount of data^[painful but worth it]
+- Add more training samples
+- Augment the training set with transformations^[rotated/cropped versions of images already in the training set for an object recognition model]
+- Combine predictions from multiple, uncorrelated models^[ensembling]
 
 #### #Regularisation
 
 ```ad-definition
 Modification of the training error function with a term $\Omega(f)$ that typically penalises complex solutions.
-$$E_{reg}(f;D_n) = E(f;D_n) + \lambda_n\Omega(f)$$ ^[$lamba_n$ is a trade-off parameter]
+$$E_{reg}(f;D_n) = E(f;D_n) + \lambda_n\Omega(f)$$ ^[$\lambda_n$ is a trade-off parameter]
 ```
 
 ```ad-example
 We can regularise by penalising polynomials with large coefficients
 $$E_{reg}(f_w;D_n) = \frac{1}{n}\sum_{i=1}^{n}[f_w(x_i) - y_i]^2 + \frac{\lambda}{n} ||w||^2$$
 ```
+
+#### More data
+
+Increasing the amount of (good) data we feed our algorithm can only improve its performance. In fact, as seen in the example, it can be a good way of forcing our model to fit the curve better even if the degree of the curve we're creating is suboptimal.
+![[curve-fitting-generalisation.png]]
+Formally, $E(f; D_n) \rightarrow E(f;p_{data})$ as $n \rightarrow \infty$, that is "as the amount of data increases, the error on the training set tends towards the error the model would get on the actual data".

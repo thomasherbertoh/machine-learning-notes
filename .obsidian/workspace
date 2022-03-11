@@ -9,7 +9,6 @@
         "state": {
           "type": "markdown",
           "state": {
-
             "file": "Machine Learning Basics.md",
             "mode": "source"
           }
@@ -22,7 +21,6 @@
         "state": {
           "type": "markdown",
           "state": {
-
             "file": "Machine Learning Basics.md",
             "mode": "preview"
           }
@@ -83,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-
                 "file": "Machine Learning Basics.md",
                 "collapseAll": false,
                 "extraContext": false,
@@ -104,7 +101,6 @@
   },
   "active": "b979daccc232ced1",
   "lastOpenFiles": [
-
     "Machine Learning Basics.md",
     "Introduction.md",
     "Supervised Learning.md",
