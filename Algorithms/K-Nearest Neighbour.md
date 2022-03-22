@@ -7,18 +7,38 @@ tags:
   - '#Min-max-scaling'
   - '#underfitting'
   - '#overfitting'
-date updated: 2022-03-22 11:40
+  - '#algorithm'
+  - '#algorithms'
+  - '#validation-set'
+  - '#cross-validation'
+  - '#features'
+  - '#Features'
+  - '#comparable'
+  - '#standardise'
+  - '#Minkowski'
+  - '#decision-boundaries'
+  - '#Decision-boundaries'
+  - '#feature'
+  - '#classification'
+  - '#Voronoi-diagram'
+  - '#Pre-processing'
+  - '#pre-processing'
+  - '#Classification'
+  - '#Curse-of-dimensionality'
+  - '#curse-of-dimensionality'
+  - '#Voronoi-diagrams'
+date updated: 2022-03-22 14:00
 ---
 
 # K-Nearest Neighbour
 
-K-nearest neighbour ( #K-NN ) is a very simple ^[if not the simplest] machine learning algorithm. It takes a [[Lazy vs. Eager Learning#Lazy Learning|lazy learning]] approach.
+K-nearest neighbour ( #K-NN ) is a very simple ^[if not the simplest] machine learning #algorithm . It takes a [[Lazy vs. Eager Learning#Lazy Learning|lazy learning]] approach.
 
 ## Data Visualisation
 
-The inner workings of #K-NN  are easiest to understand when looking at how we can visualise the example data we're using to train our model. A simple way of doing this is to turn the features of our examples into numerical values, such that they can be plotted in $n$-dimensional space for $n$ features.
+The inner workings of #K-NN  are easiest to understand when looking at how we can visualise the example data we're using to train our model. A simple way of doing this is to turn the #features of our examples into numerical values, such that they can be plotted in $n$-dimensional space for $n$ #features .
 
-![[k-nn-data-visualisation.png]]^[In this example we've kept one of the features as a label to aid comprehension]
+![[k-nn-data-visualisation.png]]^[In this example we've kept one of the #features as a label to aid comprehension]
 
 ## How it works
 
@@ -26,7 +46,7 @@ Intuitively, when given a new example, #K-NN simply looks at which group/class i
 
 ![[k-nn-classification-example.png]]
 
-Unfortunately, #K-NN 's main weaknesses lies in its most attractive trait - its simplicity leaves a lot of things down to interpretation which allows us to make more mistakes when applying the algorithm.
+Unfortunately, #K-NN 's main weaknesses lies in its most attractive trait - its simplicity leaves a lot of things down to interpretation which allows us to make more mistakes when applying the #algorithm .
 
 ## Problems
 
@@ -45,8 +65,8 @@ How do we choose $k$?
 - Larger values of $k$ will produce smoother boundary effects over the data
 - If $k = n$ the predicted class will always be the majority class
 - Often, values such as 3, 5, or 7 are chosen, but it should usually be set relatively high
-- Use the validation set to gauge a good value
-- Use cross-validation^[Train several models on subsets of the training data and evaluate them all on the same, complementary, testing set.]
+- Use the #validation-set to gauge a good value
+- Use #cross-validation ^[Train several models on subsets of the training data and evaluate them all on the same, complementary, testing set.]
 ```
 ````
 
@@ -55,9 +75,9 @@ How do we define "nearest"?
 `````ad-solution
 We could use the examples with the shortest Euclidean distance
 ````ad-problem
-Features are very rarely comparable^[they're rarely measured with the same units]
+#Features are very rarely #comparable ^[they're rarely measured with the same units]
 ```ad-solution
-We can standardise the features by dividing them by their corresponding standard deviation.
+We can #standardise the #features by dividing them by their corresponding standard deviation.
 - #Standardisation or #Z-score-normalisation
 	- Rescale the data so that the mean is $0$ and the standard deviation from the mean is $1$
 	- $x_{norm} = \frac{x - \mu}{\sigma}$
@@ -75,9 +95,9 @@ Similarity is a numerical measure of how alike two datapoints are, with a higher
 ````
 `````
 `````ad-solution
-We could use the examples with the shortest Minkowski distance
+We could use the examples with the shortest #Minkowski distance
 ````ad-definition
-The Minkowski distance is a generalisation of the Euclidean distance, defined by $$D(a, b) = {(\sum_{k=1}^{p}\mid a_k - b_k \mid^r)}^{1/r}$$ where $p$ is the number of dimensions and $r$ is a parameter to be chosen:
+The #Minkowski distance is a generalisation of the Euclidean distance, defined by $$D(a, b) = {(\sum_{k=1}^{p}\mid a_k - b_k \mid^r)}^{1/r}$$ where $p$ is the number of dimensions and $r$ is a parameter to be chosen:
 - $r = 1 \therefore$ city block/Manhattan/"$L_1$ norm" distance
 - $r = 2 \therefore$ Euclidean distance
 - $r \rightarrow \infty \therefore$ "supremum"/"$L_\infty$ norm" distance
@@ -94,22 +114,22 @@ We can see that if the two documents had no words in common, the final value we'
 ````
 `````
 `````ad-solution
-Calculate decision boundaries
+Calculate #decision-boundaries
 ````ad-definition
-Decision boundaries are places in the feature space where the classification of a point/example changes, i.e., lines separating two classes.
+#Decision-boundaries are places in the #feature space where the #classification of a point/example changes, i.e., lines separating two classes.
 ```ad-example
 ![[decision-boundaries.png]]
+The red lines denote the #decision-boundaries .
 ```
 ````
-A good way of computing these boundaries is using Voronoi diagrams, which describe the areas that are nearest to any point. Each line segment is equidistant from two points.
+A good way of computing these boundaries is using #Voronoi-diagrams , which describe the areas that are nearest to any point. Each line segment is equidistant from two points.
 
 ![[voronoi-diagram-example.png]]
-
 ````ad-note
-#K-NN doesn't explicity compute decision boundaries; they form a subset of the Voronoi diagram for the training data.
+#K-NN doesn't explicity compute decision boundaries; they form a subset of the #Voronoi-diagram for the training data.
 ````
 ````ad-note
-The more examples we store, the more complex the decision boundaries can become.
+The more examples we store, the more complex the #decision-boundaries can become.
 
 ![[complex-decision-boundaries.png]]
 ````
@@ -120,9 +140,9 @@ Instead of the $k$ nearest neighbours, we could count the majority of all the ex
 ``````
 
 ```ad-problem
-We often come across the curse of dimensionality. In high dimensions, almost all points are far away from each other. The size of the data space grows exponentially with the number of dimensions, so the size of the data set must also grow exponentially in order to maintain the same density.
+We often come across the #curse-of-dimensionality . In high dimensions, almost all points are far away from each other. The size of the data space grows exponentially with the number of dimensions, so the size of the data set must also grow exponentially in order to maintain the same density.
 
-Every machine learning algorithm needs a large data set for accurate predictions, but #K-NN is especially dependent on this factor as it requires points to be close in every single dimension. This means that without dramatic increases in the size of the data set, #K-NN loses all its predictive power.
+All machine learning #algorithms need a large data set for accurate predictions, but #K-NN is especially dependent on this factor as it requires points to be close in every single dimension. This means that without dramatic increases in the size of the data set, #K-NN loses all its predictive power.
 ```
 
 ## The Impact of $k$
@@ -133,13 +153,13 @@ When choosing a value of $k$, it's important to understand how it relates to the
 
 ## Computational Cost
 
-### Pre-processing
+### #Pre-processing
 
 Usually based on a tree data structure, for example a "k-d tree" or "k-dimensional tree".
 
 #### K-D Trees
 
-When building a k-d tree, we first plot the data in n-dimensional space. We then pick a random dimension, find the median, and split based on this median. We repeat this process for every remaining dimension.
+When building a k-d tree, we first plot the data in $n$-dimensional space. We then pick a random dimension, find the median, and split based on this median. We repeat this process for every remaining dimension.
 
 ```ad-example
 Given the $(x, y)$ points $\{(1, 9), (2, 3), (4, 1), (3, 7), (5, 4), (6, 8), (7, 2), (8, 8), (7, 9), (9, 6)\}$, we could represent the corresponding k-d tree graphically like so:
@@ -151,9 +171,9 @@ When we represent this as a tree, it becomes clear how we would choose the class
 ![[tree-like-k-d-tree.png]]
 ```
 
-### No Pre-processing
+### No #Pre-processing
 
-If no pre-processing is applied to the training data, the algorithm runs in linear time:
+If no #pre-processing is applied to the training data, the #algorithm runs in linear time:
 
 - Compute the distance for all $n$ datapoints
 - Complexity of distance calculation = $O(kn)$
@@ -161,20 +181,20 @@ If no pre-processing is applied to the training data, the algorithm runs in line
 
 ## When to Consider #K-NN
 
-#K-NN is only a viable option if there are fairly few^[less than 20] features per item in the dataset and there is a very large amount of training data.
+#K-NN is only a viable option if there are fairly few^[less than 20] #features per item in the dataset and there is a very large amount of training data.
 
 ## Advantages
 
 - Very easy to program
 - No optimisation or training required
-- Classification accuracy can be very good, and it can even outperform more complex models
+- #Classification accuracy can be very good, and it can even outperform more complex models
 
 ## Disadvantages
 
 - Choosing distance measure can be difficult
   - Euclidean distance is the most common choice
 - Must choose a good value for $k$
-- Curse of dimensionality
+- #Curse-of-dimensionality
 - Memory based
-  - Must make a pass through the data for each classification
-    - Can be prohibitive for large data sets
+  - Must make a pass through the data for each #Classification
+  - Can be prohibitive for large data sets

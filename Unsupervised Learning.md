@@ -1,10 +1,11 @@
 ---
 date created: 2022-03-08 10:29
-date updated: 2022-03-10 08:54
+date updated: 2022-03-22 13:46
 tags:
   - '#clusters'
   - '#Clustering'
   - '#Dimensionality-reduction'
+  - '#algorithm'
 ---
 
 # Unsupervised Learning
@@ -29,7 +30,7 @@ Given $T = {x_1, x_m}$ ^[no $y$ because there are no labels] output a hidden str
 
 ### Applications
 
-- Inspecting a classification algorithm
+- Inspecting a classification #algorithm
   - In digit recognition, each digit could be classed as being sets of data points whose values come out close to one another in an N-dimensional space
 
 ![[Application-unsupervised-learning.png]] ^[in this example the space is clearly 2-dimensional]

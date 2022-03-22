@@ -1,6 +1,6 @@
 ---
 date created: 2022-03-08 09:57
-date updated: 2022-03-10 08:45
+date updated: 2022-03-22 13:42
 tags:
   - '#Supervised-learning'
   - '#Unsupervised-learning'
@@ -17,15 +17,18 @@ tags:
   - '#Cross-validation'
   - '#Bootstrapping'
   - '#features'
+  - '#algorithms'
+  - '#tasks'
+  - '#task'
 ---
 
 # Introduction
 
 ## Contents of the course
 
-- #Supervised-learning ^[[\[Supervised Learning#Supervised Learning|Supervised Learning]]]
-- #Unsupervised-learning ^[[\[Unsupervised Learning#Unsupervised Learning|Unsupervised Learning]]]
-- #Reinforcement-learning ^[[\[Reinforcement Learning#Reinforcement Learning|Reinforcement Learning]]]
+- #Supervised-learning ^[[\\\\\\\[Supervised Learning#Supervised Learning|Supervised Learning]]]
+- #Unsupervised-learning ^[[\\\\\\\[Unsupervised Learning#Unsupervised Learning|Unsupervised Learning]]]
+- #Reinforcement-learning ^[[\\\\\\\[Reinforcement Learning#Reinforcement Learning|Reinforcement Learning]]]
 
 ```ad-note
 There are [[Optional Knowledge#Other Learning Techniques|other learning techniques]].
@@ -35,7 +38,7 @@ There are [[Optional Knowledge#Other Learning Techniques|other learning techniqu
 
 ````ad-question
 title: What is machine learning?
-Machine learning is the study of computer algorithms that improve automatically through experience. It is seen as a part of artificial intelligence.
+Machine learning is the study of computer #algorithms that improve automatically through experience. It is seen as a part of artificial intelligence.
 
 ```ad-quote
 Machine learning is the science of getting computers to act without being explicitly programmed.
@@ -44,7 +47,7 @@ Machine learning is the science of getting computers to act without being explic
 ```
 
 ```ad-quote
-Machine learning is concerned with the automatic discovery of regularities in data through the use of computer algorithms and with the use of these regularities to take actions.
+Machine learning is concerned with the automatic discovery of regularities in data through the use of computer #algorithms and with the use of these regularities to take actions.
 
 <cite>Christopher M. Bishop</cite>
 ```
@@ -69,7 +72,7 @@ A computer program is said to learn from experience $E$ with respect to some cla
 
 ```ad-tldr
 title: TL;DR
-Machine learning is the study of algorithms that
+Machine learning is the study of #algorithms that
 - improve their performance $P$
 - at some #task $T$
 - with experience $E$
@@ -140,7 +143,7 @@ Deep learning means using a neural network with several layers of nodes between 
 
 - Flood of available data
 - Increased computational power
-- Growing number of machine learning algorithms and theory developed by researchers
+- Growing number of machine learning #algorithms and theory developed by researchers
 - Increased support from the industry
 
 ## The Learning Process

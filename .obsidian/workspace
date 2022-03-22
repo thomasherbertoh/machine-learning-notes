@@ -4,7 +4,7 @@
     "type": "split",
     "children": [
       {
-        "id": "b979daccc232ced1",
+        "id": "8bce506bf8883055",
         "type": "leaf",
         "state": {
           "type": "markdown",
@@ -13,10 +13,10 @@
             "mode": "source"
           }
         },
-        "group": "4306ba11a1939552"
+        "group": "2e7ea366008e27d6"
       },
       {
-        "id": "0e58ed1e77844ebb",
+        "id": "7f24eaeadf6abd6f",
         "type": "leaf",
         "state": {
           "type": "markdown",
@@ -25,7 +25,7 @@
             "mode": "preview"
           }
         },
-        "group": "4306ba11a1939552"
+        "group": "2e7ea366008e27d6"
       }
     ],
     "direction": "vertical"
@@ -52,7 +52,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#Classification",
+                "query": "tag:#Voronoi-diagrams,",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -61,7 +61,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -99,16 +100,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "b979daccc232ced1",
+  "active": "8bce506bf8883055",
   "lastOpenFiles": [
     "Algorithms/K-Nearest Neighbour.md",
-    "Lazy vs. Eager Learning.md",
-    "Machine Learning Basics.md",
-    "Introduction.md",
     "Supervised Learning.md",
     "Unsupervised Learning.md",
-    "Reinforcement Learning.md",
     "Optional Knowledge.md",
+    "Reinforcement Learning.md",
+    "Lazy vs. Eager Learning.md",
+    "Introduction.md",
+    "Machine Learning Basics.md",
+    "Images/voronoi-diagram-example.png",
     "Instructors.md"
   ]
 }

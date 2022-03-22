@@ -1,6 +1,6 @@
 ---
 date created: 2022-03-10 08:46
-date updated: 2022-03-11 08:48
+date updated: 2022-03-22 13:39
 tags:
   - '#Tasks'
   - '#task'
@@ -17,6 +17,8 @@ tags:
   - '#Overfitting'
   - '#Generalisation'
   - '#Regularisation'
+  - '#algorithm'
+  - '#algorithms'
 ---
 
 # Machine Learning Basics
@@ -55,7 +57,7 @@ Find a function $f \in Y^X$ mapping each (high-dimensional) input $x \in X$to a 
 ![[dimensionality-reduction-example.png]]
 
 ```ad-note
-Dimensionality reduction may be used to inspect a classification algorithm.
+Dimensionality reduction may be used to inspect a classification #algorithm .
 ```
 
 ## #Data
@@ -71,15 +73,15 @@ When using a _probabilistic model_ of learning, this probability distribution ov
 
 ### Training set design
 
-The failure of a machine learning algorithm is often caused by a bad selection of training samples. For example, we might introduce unwanted correlations from which the algorithm derives wrong conclusions.
+The failure of a machine learning #algorithm  is often caused by a bad selection of training samples. For example, we might introduce unwanted correlations from which the #algorithm  derives wrong conclusions.
 
 ```ad-example
-If we're trying to make a model that distinguishes between pictures of dogs and pictures of cats, and all of the pictures of dogs are taken on sunny days while all the pictures of cats are taken on cloudy days then the algorithm is more likely to learn the difference between pictures taken on sunny days and pictures taken on cloudy days.
+If we're trying to make a model that distinguishes between pictures of dogs and pictures of cats, and all of the pictures of dogs are taken on sunny days while all the pictures of cats are taken on cloudy days then the #algorithm is more likely to learn the difference between pictures taken on sunny days and pictures taken on cloudy days.
 ```
 
 ## Models and Hypothesis Space
 
-A model is a program that can solve our problem, or the implementation of a function $f \in F_{task}$ that can be easily computed. A set of models forms a hypothesis space $H \subset F_{task}$. The learning algorithm seeks a solution within the hypothesis space.
+A model is a program that can solve our problem, or the implementation of a function $f \in F_{task}$ that can be easily computed. A set of models forms a hypothesis space $H \subset F_{task}$. The learning #algorithm  seeks a solution within the hypothesis space.
 
 A model may be represented by the expression $f_w(x) = \sum_{j=0}^{M}w_jx^j$ and the hypothesis space may then be represented by $H_M = \{f_w : w \in \mathbb{R}^M\}$, where $w_j$ is the $j$th parameter and $M$ is a fixed value in $\mathbb{N}$ representing the degree of the function.
 
@@ -122,7 +124,7 @@ Objective: $$f^{\star}_{H_M}(D_n) \in arg\ min_{f \in H_M}E(f;D_n)$$
 equivalent to $f_{w^{\star}}$ where $$w^{\star} \in arg\ min_{w \in \mathbb{R}^M} \frac{1}{n} \sum^{n}_{i=1}[f_w(x_i) - y_i]^2$$ ^[requires solving a linear system of equations]
 ```
 
-Learning algorithms will search for the optimal value, but may end up at a different result as they are susceptible to finding local minima. This can lead to #underfitting or #overfitting .
+Learning #algorithms will search for the optimal value, but may end up at a different result as they are susceptible to finding local minima. This can lead to #underfitting or #overfitting .
 
 #### #Underfitting
 
@@ -150,8 +152,8 @@ It's worth noting that it's impossible to reduce error to zero due to randomness
 - Avoid obtaining minimum training error
 - Reduce model capacity
 - Change the objective with a [[Machine Learning Basics#Regularisation|regularisation]] term
-- Inject noise into the learning algorithm
-- Stop the learning algorithm before convergence
+- Inject noise into the learning #algorithm
+- Stop the learning #algorithm  before convergence
 - Increase the amount of data^[painful but worth it]
 - Add more training samples
 - Augment the training set with transformations^[rotated/cropped versions of images already in the training set for an object recognition model]
@@ -171,6 +173,6 @@ $$E_{reg}(f_w;D_n) = \frac{1}{n}\sum_{i=1}^{n}[f_w(x_i) - y_i]^2 + \frac{\lambda
 
 #### More data
 
-Increasing the amount of (good) data we feed our algorithm can only improve its performance. In fact, as seen in the example, it can be a good way of forcing our model to fit the curve better even if the degree of the curve we're creating is suboptimal.
+Increasing the amount of (good) data we feed our #algorithm  can only improve its performance. In fact, as seen in the example, it can be a good way of forcing our model to fit the curve better even if the degree of the curve we're creating is suboptimal.
 ![[curve-fitting-generalisation.png]]
 Formally, $E(f; D_n) \rightarrow E(f;p_{data})$ as $n \rightarrow \infty$, that is "as the amount of data increases, the error on the training set tends towards the error the model would get on the actual data".
