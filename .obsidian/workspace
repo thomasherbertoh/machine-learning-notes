@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Algorithms/K-Nearest Neighbour.md",
+            "file": "Introduction.md",
             "mode": "source"
           }
         },
@@ -21,7 +21,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Algorithms/K-Nearest Neighbour.md",
+            "file": "Introduction.md",
             "mode": "preview"
           }
         },
@@ -61,8 +61,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -82,7 +81,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Algorithms/K-Nearest Neighbour.md",
+                "file": "Introduction.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,13 +101,13 @@
   },
   "active": "8bce506bf8883055",
   "lastOpenFiles": [
+    "Introduction.md",
     "Algorithms/K-Nearest Neighbour.md",
     "Supervised Learning.md",
     "Unsupervised Learning.md",
     "Optional Knowledge.md",
     "Reinforcement Learning.md",
     "Lazy vs. Eager Learning.md",
-    "Introduction.md",
     "Machine Learning Basics.md",
     "Images/voronoi-diagram-example.png",
     "Instructors.md"

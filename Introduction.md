@@ -26,9 +26,9 @@ tags:
 
 ## Contents of the course
 
-- #Supervised-learning ^[[\\\\\\\[Supervised Learning#Supervised Learning|Supervised Learning]]]
-- #Unsupervised-learning ^[[\\\\\\\[Unsupervised Learning#Unsupervised Learning|Unsupervised Learning]]]
-- #Reinforcement-learning ^[[\\\\\\\[Reinforcement Learning#Reinforcement Learning|Reinforcement Learning]]]
+- #Supervised-learning ^[[[Lazy vs. Eager Learning]]]
+- #Unsupervised-learning ^[[[Unsupervised Learning#Unsupervised Learning|Unsupervised Learning]]]
+- #Reinforcement-learning ^[[[Reinforcement Learning#Reinforcement Learning|Reinforcement Learning]]]
 
 ```ad-note
 There are [[Optional Knowledge#Other Learning Techniques|other learning techniques]].
