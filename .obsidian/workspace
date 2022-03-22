@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Machine Learning Basics.md",
+            "file": "Algorithms/K-Nearest Neighbour.md",
             "mode": "source"
           }
         },
@@ -21,7 +21,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Machine Learning Basics.md",
+            "file": "Algorithms/K-Nearest Neighbour.md",
             "mode": "preview"
           }
         },
@@ -81,7 +81,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Machine Learning Basics.md",
+                "file": "Algorithms/K-Nearest Neighbour.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -101,6 +101,8 @@
   },
   "active": "b979daccc232ced1",
   "lastOpenFiles": [
+    "Algorithms/K-Nearest Neighbour.md",
+    "Lazy vs. Eager Learning.md",
     "Machine Learning Basics.md",
     "Introduction.md",
     "Supervised Learning.md",

@@ -36,6 +36,18 @@
       "title": "Problem",
       "injectColor": true,
       "noTitle": false
+    },
+    "solution": {
+      "type": "solution",
+      "color": "65, 192, 1",
+      "icon": {
+        "name": "check-circle",
+        "type": "font-awesome"
+      },
+      "command": false,
+      "title": "Solution",
+      "injectColor": true,
+      "noTitle": false
     }
   },
   "syntaxHighlight": false,
