@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Introduction.md",
+            "file": "Algorithms/Perceptron.md",
             "mode": "source"
           }
         },
@@ -21,7 +21,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Introduction.md",
+            "file": "Algorithms/Perceptron.md",
             "mode": "preview"
           }
         },
@@ -52,7 +52,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#Voronoi-diagrams,",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -81,7 +81,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Introduction.md",
+                "file": "Algorithms/Perceptron.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -101,15 +101,15 @@
   },
   "active": "8bce506bf8883055",
   "lastOpenFiles": [
-    "Introduction.md",
-    "Algorithms/K-Nearest Neighbour.md",
-    "Supervised Learning.md",
-    "Unsupervised Learning.md",
+    "Algorithms/Perceptron.md",
     "Optional Knowledge.md",
-    "Reinforcement Learning.md",
-    "Lazy vs. Eager Learning.md",
     "Machine Learning Basics.md",
-    "Images/voronoi-diagram-example.png",
-    "Instructors.md"
+    "Introduction.md",
+    "Models/Linear Models.md",
+    "Algorithms/K-Nearest Neighbour.md",
+    "Lazy vs. Eager Learning.md",
+    "Reinforcement Learning.md",
+    "Unsupervised Learning.md",
+    "Supervised Learning.md"
   ]
 }

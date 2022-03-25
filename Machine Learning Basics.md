@@ -1,6 +1,6 @@
 ---
 date created: 2022-03-10 08:46
-date updated: 2022-03-22 13:39
+date updated: 2022-03-25 09:38
 tags:
   - '#Tasks'
   - '#task'
@@ -19,6 +19,12 @@ tags:
   - '#Regularisation'
   - '#algorithm'
   - '#algorithms'
+  - '#Dimensionality'
+  - '#Assumptions'
+  - '#assumptions'
+  - '#assumption'
+  - '#Bias'
+  - '#K-NN'
 ---
 
 # Machine Learning Basics
@@ -57,7 +63,7 @@ Find a function $f \in Y^X$ mapping each (high-dimensional) input $x \in X$to a 
 ![[dimensionality-reduction-example.png]]
 
 ```ad-note
-Dimensionality reduction may be used to inspect a classification #algorithm .
+#Dimensionality reduction may be used to inspect a classification #algorithm .
 ```
 
 ## #Data
@@ -176,3 +182,13 @@ $$E_{reg}(f_w;D_n) = \frac{1}{n}\sum_{i=1}^{n}[f_w(x_i) - y_i]^2 + \frac{\lambda
 Increasing the amount of (good) data we feed our #algorithm  can only improve its performance. In fact, as seen in the example, it can be a good way of forcing our model to fit the curve better even if the degree of the curve we're creating is suboptimal.
 ![[curve-fitting-generalisation.png]]
 Formally, $E(f; D_n) \rightarrow E(f;p_{data})$ as $n \rightarrow \infty$, that is "as the amount of data increases, the error on the training set tends towards the error the model would get on the actual data".
+
+## #Assumptions
+
+Some machine learning approaches make strong #assumptions , which if correct can lead to better performance, but if incorrect could lead to complete failure of the model. Other approaches don't take into account any kind of #assumption , meaning they can learn from more varied data but are more prone to overfitting and generally require more training data.
+
+Knowing the model beforehand can drastically improve not only the learning speed, but also the required number of examples to attain an acceptable level of accuracy. It's important to ensure the correctness of any #assumptions made, however, as incorrect assumptions could have the exact inverse effect.
+
+### #Bias
+
+#Bias is a measure of how strong the assumptions on a model are. Low-bias classifiers (such as #K-NN or decision trees) make minimal/no #assumptions about the data, whereas high-bias classifiers make strong #assumptions about the data.
