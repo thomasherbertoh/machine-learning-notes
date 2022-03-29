@@ -1,13 +1,15 @@
 ---
 date created: 2022-03-25 09:20
-date updated: 2022-03-25 10:13
+date updated: 2022-03-25 10:19
 tags:
   - '#converge'
+  - '#algorithm'
+  - '#linear-model'
 ---
 
 # Perceptron
 
-Perceptron is a simple machine learning algorithm based on a ![[Linear Models|linear model]]
+Perceptron is a simple machine learning #algorithm based on a ![[Linear Models|#linear-model]]
 
 ## Algorithm
 

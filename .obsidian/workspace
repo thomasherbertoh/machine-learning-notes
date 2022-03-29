@@ -10,22 +10,9 @@
           "type": "markdown",
           "state": {
             "file": "Algorithms/Perceptron.md",
-            "mode": "source"
-          }
-        },
-        "group": "2e7ea366008e27d6"
-      },
-      {
-        "id": "7f24eaeadf6abd6f",
-        "type": "leaf",
-        "state": {
-          "type": "markdown",
-          "state": {
-            "file": "Algorithms/Perceptron.md",
             "mode": "preview"
           }
-        },
-        "group": "2e7ea366008e27d6"
+        }
       }
     ],
     "direction": "vertical"
@@ -102,10 +89,10 @@
   "active": "8bce506bf8883055",
   "lastOpenFiles": [
     "Algorithms/Perceptron.md",
+    "Models/Linear Models.md",
     "Optional Knowledge.md",
     "Machine Learning Basics.md",
     "Introduction.md",
-    "Models/Linear Models.md",
     "Algorithms/K-Nearest Neighbour.md",
     "Lazy vs. Eager Learning.md",
     "Reinforcement Learning.md",
