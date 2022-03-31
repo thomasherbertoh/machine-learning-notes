@@ -1,11 +1,15 @@
 ---
 date created: 2022-03-24 08:40
-date updated: 2022-03-25 09:29
+date updated: 2022-03-31 14:50
 tags:
   - '#online-learning'
   - '#Dimensionality'
   - '#linearly-separable'
   - '#linear-model'
+  - '#Loss-functions'
+  - '#Loss-Functions'
+  - '#loss-function'
+  - '#Gradient-Descent'
 ---
 
 # Linear Models
@@ -61,4 +65,53 @@ We now receive the point $(-1, 1)$, which we classify as being part of the negat
 
 The first point is now classified correctly, and we receive the next point $(1, -1)$. Because $0 * 1 + 1 * -1 = -1$ we classify it as part of the negative class, and we're told that this is correct. In this case we do not need to update the model.
 ![[learning-linear-classifier-1.png]]
+```
+
+## #Loss-Functions
+
+When training a model we need to choose a criterion to minimise. In the case of the model $0 = b + \sum_{j=1}^{n}{w_jf_j}$ we could choose to find the values of $w$ and $b$ for which $\sum_{i=1}^{n}{1[y_i(w \cdot x_i + b) \le 0]}$ is minimal. That is, minimising the $0/1$ loss or number of mistakes. Unfortunately, this particular function is far from continuous and is definitely not differentiable, making it incredibly hard^[NP-Hard, in fact] to find the minimum value of it. #Loss-functions are usually "ranked" based on how they score the difference between the actual label $y$ and the predicted label $y^{'}$.
+
+### Surrogate #Loss-Functions
+
+In many cases, we would like to minimise the $0/1$ loss. A surrogate #loss-function is a loss function that provides an upper bound on the actual loss function. Generally we want convex surrogate loss functions as they are easier to minimise. Some possibilities are the following:
+
+- $0/1$ loss:
+  - $l(y, y^{'}) = 1[yy^{'} \le 0]$
+- Hinge:
+  - $l(y, y^{'}) = max(0, 1 - yy^{'})$
+- Exponential:
+  - $l(y, y^{'}) = exp(-yy^{'})$
+- Squared loss:
+  - $l(y, y^{'}) = (y-y^{'})^2$
+
+## #Gradient-Descent
+
+Using derivatives we can find the slope of the function in our current position. Using this we can then choose which direction to move in order to minimise the function. Mathematically, when starting from a position $w$, our formula to move will look something like this $w_j = w_j - \frac{d}{dw_j}loss(w)$^[we subtract because if the derivative is negative it means that to go downhill we should move right, therefore we should increase the input]
+We can add a further parameter to this equation, $\eta$^[eta], which we use as the learning rate: $w_j = w_j - \eta\frac{d}{dw_j}loss(w)$
+Through further complicated mathematical steps we find another possible formula we can use to search for the minimum: $w_j = w_j + \eta \sum_{i=1}^{n}y_ix_{ij}exp(-y_i(w \cdot x_i + b))$
+For each example $x_i$ we can take $w_j = w_j + \eta y_ix_{ij}exp(-y_i(w \cdot x_i + b))$ and for simplicity's sake we'll say $c = \eta exp(-y_i(w \cdot x_i + b))$.
+
+```ad-question
+title: When is $c$ large/small?
+Reminding ourselves that $\eta$ is the learning rate, $y_i$ is the label, and $w \cdot x_i + b$ is the prediction, we can see that if the label and the prediction have the same sign then the size of the step we'll take will grow as the prediction grows. On the other hand, if the signs differ, then the size of the step will grow with how different the values are.
+```
+
+### Gradient
+
+The gradient is the vector of partial derivatives with respect to all the coordinates of the weights: $\Delta_ WL = [\frac{\delta L}{\delta w_1}\frac{\delta L}{\delta w_2}...\frac{\delta L}{\delta w_N}]$
+
+```ad-note
+Not all optimisation problems are convex; they often have local minimums.
+```
+
+```ad-problem
+title: Saddle points
+At a saddle point, some directions curve upwards and others curve downwards. Here the gradient is zero even though we aren't at a minimum, meaning we get stuck if we fall exactly on the saddle point. If we can move slightly to one side we can get unstuck. Saddle points are very common in high dimensions.
+![[gradient-descent-saddle-point.png]]
+```
+
+```ad-warning
+title: The learning rate $\eta$ is a very important hyper-parameter
+Choosing an appropriate value for the learning rate is vital to getting getting good results. As evidenced in the picture below, setting it too low will guarantee finding the exact minimum but will also make the whole process take longer than it has to. Setting it too high may make it impossible to apply the algorithm in more extreme cases.
+![[gradient-descent-learning-rate.png]]
 ```

@@ -4,15 +4,30 @@
     "type": "split",
     "children": [
       {
+        "id": "4ce8acf3a3442c33",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "Models/Linear Models.md",
+            "mode": "source",
+            "backlinks": false
+          }
+        },
+        "group": "b577e432c4c1ac4f"
+      },
+      {
         "id": "8bce506bf8883055",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Algorithms/Perceptron.md",
-            "mode": "preview"
+            "file": "Models/Linear Models.md",
+            "mode": "preview",
+            "backlinks": false
           }
-        }
+        },
+        "group": "b577e432c4c1ac4f"
       }
     ],
     "direction": "vertical"
@@ -68,7 +83,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Algorithms/Perceptron.md",
+                "file": "Models/Linear Models.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -86,17 +101,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "8bce506bf8883055",
+  "active": "4ce8acf3a3442c33",
   "lastOpenFiles": [
-    "Algorithms/Perceptron.md",
     "Models/Linear Models.md",
+    "Images/gradient-descent-learning-rate.png",
+    "Algorithms/Perceptron.md",
+    "Notation.md",
+    "Images/learning-linear-classifier-0.png",
     "Optional Knowledge.md",
     "Machine Learning Basics.md",
     "Introduction.md",
     "Algorithms/K-Nearest Neighbour.md",
-    "Lazy vs. Eager Learning.md",
-    "Reinforcement Learning.md",
-    "Unsupervised Learning.md",
-    "Supervised Learning.md"
+    "Lazy vs. Eager Learning.md"
   ]
 }
