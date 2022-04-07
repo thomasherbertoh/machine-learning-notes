@@ -1,6 +1,6 @@
 ---
 date created: 2022-03-24 08:40
-date updated: 2022-03-31 14:50
+date updated: 2022-04-07 15:22
 tags:
   - '#online-learning'
   - '#Dimensionality'
@@ -10,6 +10,12 @@ tags:
   - '#Loss-Functions'
   - '#loss-function'
   - '#Gradient-Descent'
+  - '#Regularisation'
+  - '#regulariser'
+  - '#P-Norm'
+  - '#Minimisation'
+  - '#Convexity'
+  - '#P-norms'
 ---
 
 # Linear Models
@@ -112,6 +118,66 @@ At a saddle point, some directions curve upwards and others curve downwards. Her
 
 ```ad-warning
 title: The learning rate $\eta$ is a very important hyper-parameter
-Choosing an appropriate value for the learning rate is vital to getting getting good results. As evidenced in the picture below, setting it too low will guarantee finding the exact minimum but will also make the whole process take longer than it has to. Setting it too high may make it impossible to apply the algorithm in more extreme cases.
+Choosing an appropriate value for the learning rate is vital to getting getting good results. As evidenced in the picture below, setting it too low will guarantee finding the exact minimum but will also make the whole process take longer than it has to. Setting it too high may make it impossible to apply the algorithm properly in more extreme cases.
 ![[gradient-descent-learning-rate.png]]
 ```
+
+## #Regularisation
+
+A #regulariser is a criterion we can add to the loss function of a model to make sure we don't overfit. It's a bias on the model that forces the learning to prefer certain types of weights over others $argmin_{w,b} \sum_{i=1}^{n} loss(yy^{'}) + \lambda\ regulariser(w, b)$
+
+We generally want to avoid having huge weights, as a relatively small change in a feature could have a drastic impact on the prediction.
+
+### #P-Norm
+
+$r(w, b) = \sqrt[p]{\sum{|w_j|^p}} = ||w||^p$
+Smaller values of $p$^[$p<2$] will encourage sparser vectors, whereas larger values will discourage large weights more.
+Sum of weights^[1-norm/L1]: $r(w, b) = \sum{|w_j|}$
+Sum of squared weights^[2-norm/L2]: $r(w, b) = \sqrt{\sum{|w_j|^2}}$
+
+In jargon, 1-norm is referred to as "lasso" and 2-norm is known as "ridge".
+
+L1 and L2 regularised cost functions are relatively easy to graphically represent in two dimensions; in the below diagram the L1 and L2 "balls" are displayed on the origin of the $(w_1, w_2)$ plane.
+![[regularisation-pnorm.png]]
+The optimal solution is where the contour first intersects the norm ball. Note that sparsity occurs in the corners of these balls. Due to this, we can intuitively imply that L2 is a good regularisation of the problem as we are much less likely to encounter scarsity.
+
+```ad-tldr
+title: TL;DR
+L1 will tend to generate a small number of features setting all other features to $0$, while L2 will select more features which will all be close to 0.In fact, in the above diagram we can see that $w_1$ is 0.
+```
+
+### #Minimisation
+
+If we can ensure that the sum of the loss function and the regulariser is convex then we can still use gradient descent: $argmin_{w, b} \sum_{i=1}^{n}loss(yy^{'}) + \lambda\ regulariser(w)$
+
+#### #Convexity
+
+```ad-definition
+The line segment between any two points on the function is *above* the function.
+```
+
+Mathematically, $f$ is convex if for all $x_1, x_2$, $f(tx_1 + (1 - t)x_2) \le tf(x_1) + (1 - t)f(x_2)\ \forall\ 0 < t < 1$ where $f(tx_1 + (1 - t)x_2)$ is the value of the function at some point between $x_1$ and $x_2$ and $tf(x_1) + (1 - t)f(x_2)$ is the value at some point on the line segment between $x_1$ and $x_2$.
+
+```ad-note
+If both the loss function and the regulariser are convex, then their sum will also be convex.
+```
+
+```ad-note
+P-norms are convex for $p \ge 1$
+```
+
+### #Gradient-Descent
+
+We have the following optimisation criterion $argmin_{w, b} \sum_{i=1}^{n}{exp(-y_i(w \cdot x_i + b)) + \frac{\lambda}{2}||w||^2}$ where the loss function ^[$exp(-y_i(w \cdot x_i + b))$] penalises examples where the prediction is different to the label and the regulariser^[$||w||^2$] penalises large weights.
+
+### Regularisation with #P-norms
+
+- L1: $w_j = w_j +  \eta(loss\_correction\ - \lambda\ sign(w_j))$
+- L2: $w_j = w_j +  \eta(loss\_correction\ - \lambda w_j)$
+- Lp: $w_j = w_j +  \eta(loss\_correction\ - \lambda cw_{j}^{p-1})$
+
+### Summary
+
+- L1 is popular because it tends to result in sparse solutions^[lots of zero-weights]. However, it is not differentiable, so it only works for gradient descent solvers.
+- L2 is also popular because for some loss functions it can be solved in a "single" step^[no gradient descent required, though solvers are often iterative anyway]
+- Lp is less popular since the weights don't tend to be shrunk sufficiently.

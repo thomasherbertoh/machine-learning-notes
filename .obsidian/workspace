@@ -54,7 +54,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "regularisation",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -104,12 +104,12 @@
   "active": "4ce8acf3a3442c33",
   "lastOpenFiles": [
     "Models/Linear Models.md",
+    "Machine Learning Basics.md",
     "Images/gradient-descent-learning-rate.png",
     "Algorithms/Perceptron.md",
     "Notation.md",
     "Images/learning-linear-classifier-0.png",
     "Optional Knowledge.md",
-    "Machine Learning Basics.md",
     "Introduction.md",
     "Algorithms/K-Nearest Neighbour.md",
     "Lazy vs. Eager Learning.md"
