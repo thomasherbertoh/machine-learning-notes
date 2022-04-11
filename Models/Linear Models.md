@@ -1,6 +1,6 @@
 ---
 date created: 2022-03-24 08:40
-date updated: 2022-04-07 15:22
+date updated: 2022-04-11 09:29
 tags:
   - '#online-learning'
   - '#Dimensionality'
@@ -16,6 +16,11 @@ tags:
   - '#Minimisation'
   - '#Convexity'
   - '#P-norms'
+  - '#Perceptron'
+  - '#separable'
+  - '#perceptron'
+  - '#non-separable'
+  - '#margin'
 ---
 
 # Linear Models
@@ -181,3 +186,136 @@ We have the following optimisation criterion $argmin_{w, b} \sum_{i=1}^{n}{exp(-
 - L1 is popular because it tends to result in sparse solutions^[lots of zero-weights]. However, it is not differentiable, so it only works for gradient descent solvers.
 - L2 is also popular because for some loss functions it can be solved in a "single" step^[no gradient descent required, though solvers are often iterative anyway]
 - Lp is less popular since the weights don't tend to be shrunk sufficiently.
+
+## Support Vector Machines
+
+The two main variations in linear classifiers are which line/hyperplane they choose when the data is linearly separable, and how they handle data that is not linearly separable.
+
+```ad-example
+title: #Perceptron Example
+For #separable data, the #perceptron will find *some* hyperplane that separates the data, whereas for #non-separable data it will continue adjusting as it iterates through the examples and the final hyperplane will depend on which examples it saw most recently.
+```
+
+```ad-definition
+The #margin of a classifier is the distance to the closest points of either class. Large margin classifiers attempt to maximise this.
+![[linear-model-margin-definition.png]]
+```
+
+### Support Vectors
+
+```ad-definition
+For any separating hyperplane, there exists some set of closest points. These are called the support vectors. For $n$ dimensions, there will be at least $n + 1$ support vectors.
+```
+
+Maximising the margin is good, as it implies that only the support vectors matter and the other examples can be ignored.
+
+#### Measuring the Margin
+
+Given the hyperplane $wx-b=0$ and margins equal to $wx-b=1$ and $wx-b=-1$ we can calculate the distance between the two margins to be $\frac{2}{||w||}$, meaning the distance between the hyperplane and each of the margins is $\frac{1}{||w||}$^[this is the value we will generally use for the size of a margin].
+
+We want to select the hyperplane with the largest margin where the points are classified correctly and lie outside the margin. Mathematically, $max_{w, b}\ \frac{1}{||w||}$ subject to $y_i(w \cdot x_i + b) \ge 1\ \forall i$. This can be simplified to $min_{w, b}\ ||w||$ subject to $y_i(w \cdot x_i + b) \ge 1\ \forall i$, meaning that maximising the margin is equivalent to minimising the norm of the weights^[as long as the hyperplane satisfies all other constraints].
+
+#### Support Vector Machine Problem
+
+$min_{w, b}\ ||w||^2$ subject to  $y_i(w \cdot x_i + b) \ge 1\ \forall i$
+
+```ad-note
+This is an example of a quadratic optimisation problem. I.e., maximising/minimising a quadratic function subject to a set of linear constraints.
+```
+
+### Soft Margin Classification
+
+```ad-problem
+Using what we've seen so far, there are many models we'd like to learn but can't as our constraints are too strict. For example, in the following image we'd like to learn something similar to what's shown but we can't as the constraints we've set so far stop us from having wrongly classified examples^[of which there are clearly two in this case].
+```
+
+![[soft-margin-classification-problem.png]]
+
+#### Slack Variables
+
+```ad-idea
+To combat this, we can implement what are known as #slack-variables .
+```
+
+$min_{w, b}\ ||w||^2 + C \sum_i \zeta_i$^[zeta] subject to $y_i(w \cdot x_i + b) \ge 1 - \zeta_i,\ \zeta_i \ge 0\ \forall i$
+
+$C$ can be interpreted as a way of controlling overfitting; it's a trade-off between margin maximisation and penalisation of the model. Having a small value of $C$ allows constraints to easily be ignored, leading to a large margin, whereas having a large value of $C$ makes the constraints hard to ignore, therefore leading to a narrow margin.
+
+```ad-note
+$C = \infty$ enforces all constraints, leading to a "hard" margin like we had before.
+```
+
+The model as a whole gets penalised based on how far it is from being 100% correct. The "$\ge 1 - \zeta_i$" condition allows the model to make mistakes.
+
+#### Understanding Soft Margin SVMs
+
+Here is an example of a soft margin support vector machine:
+
+![[soft-margin-svm-example.png]]
+
+```ad-question
+title: What are the slack values for correctly classified points on or outside the margin?
+collapse:
+$0$, as the slack variables have to be greater than or equal to $0$ and if the points are on or beyond the margin then $y_i(wx_i + b) \ge 1$ already
+```
+
+```ad-question
+title: What are the slack values for correctly classified points inside the margin?
+collapse:
+The distance from the point to the margin, i.e. $\zeta_i = 1 - y_i(w \cdot x_i + b)$
+```
+
+```ad-question
+title:What are the slack values for incorrectly classified points?
+collapse:
+The distance to the hyperplane^[$-y_i(w \cdot x_i + b)$] *plus* the distance to the margin^[$1$], that is $\zeta_i = 1 - y_i(w \cdot x_i + b)$
+```
+
+Effectively, we get that $\zeta_i = 0$ when $y_i(w \cdot x_i + b) \ge 1$^[the points are correctly classified] and lie outside the margin and $\zeta_i = 0$ otherwise. This can be simplified to $\zeta_i = max(0, 1 - y_i(w \cdot x_i + b)) = max(0, 1 - yy^{'}).$
+
+#### The Dual Problem
+
+Quadratic optimisation problems are a well-known class of mathematical programming problems for which several non-trivial algorithms exist. One possible solution involves constructing a dual problem where a Lagrange multiplier $\alpha_i$is associated with every inequality constraint in the primal/original problem: $max_\alpha \sum_i \alpha_i - \frac{1}{2} \sum_i \sum_j \alpha_i \alpha_j y_i y_j x_{i}^{T}x_j\ s.t.\ \sum_i \alpha_i y_i = 0,\ \alpha_i \ge 0,\ \forall i$
+
+````ad-solution
+Given a solution $\alpha_1...\alpha_n$ to the dual problem, the solution to the primal is $$w = \sum_i \alpha_i y_i x_i$$ $$b = y_k - \sum_i \alpha_i y_i x_{i}^{T} x_k$$
+Each non-zero $\alpha_i$ indicates that the corresponding $x_i$ is a support vector. Therefore, the classifying function is $$f(x) = \sum_i \alpha_i y_i x_{i}^{T} x + b$$
+```ad-note
+Note that we don't need $w$ explicitly.
+```
+There are two important observations we can make here, namely:
+- The solution relies on an inner product between the test point $x$ and the support vectors $x_i$.
+- Solving the optimisation problem involves computing the inner products between all training points.
+````
+
+##### Applying a Soft Margin
+
+The main difference is in the constraints:  $max_\alpha \sum_i \alpha_i - \frac{1}{2} \sum_i \sum_j \alpha_i \alpha_j y_i y_j x_{i}^{T}x_j\ s.t.\ \sum_i \alpha_i y_i = 0,\ 0 \le \alpha_i \le C,\ \forall i$
+Again, $x_i$ with non-zero $\alpha_i$ will be support vectors.
+
+### Non-Linear Suport Vector Machines
+
+Datasets that are linearly separable work out great, even with some noise.
+
+```ad-problem
+title: But what can we do if the dataset isn't linearly separable?
+```
+
+```ad-solution
+title: We can map the data to a higher-dimensional space
+```
+
+![[non-linear-svm-higher-dimensionality.png]]
+Here we can see that if we only took into account the $x$ axis then the dataset would not have been linearly separable.
+
+#### Feature Spaces
+
+In general, the original feature space can be mapped to some higher-dimensional feature space where the training set is separable. For example:
+![[non-linear-svm-feature-spaces.png]]
+
+#### The Kernel Trick
+The linear classifier relies on an inner product between vectors $K(x_i, x_j) = x_{i}^{T}x_j$. If every datapoint is mapped into high-dimensional space via some transformation $\Phi: x \rightarrow \phi(x)$, the inner product becomes $K(x_i, x_j) = \phi(x_i)^T \phi(x_j)$
+
+```ad-note
+A kernel function is a function that is equivalent to an inner product in some feature space.
+```
