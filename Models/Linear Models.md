@@ -1,6 +1,6 @@
 ---
 date created: 2022-03-24 08:40
-date updated: 2022-04-11 09:29
+date updated: 2022-04-14 15:47
 tags:
   - '#online-learning'
   - '#Dimensionality'
@@ -21,6 +21,17 @@ tags:
   - '#perceptron'
   - '#non-separable'
   - '#margin'
+  - '#slack-variables'
+  - '#Multiclass'
+  - '#Multilabel'
+  - '#multiclass'
+  - '#classification,'
+  - '#multilabel'
+  - '#Combined-Feature-Vectors'
+  - '#Preference-Function'
+  - '#preference-function'
+  - '#Bipartite-Ranking'
+  - '#bipartite-ranking'
 ---
 
 # Linear Models
@@ -314,8 +325,101 @@ In general, the original feature space can be mapped to some higher-dimensional 
 ![[non-linear-svm-feature-spaces.png]]
 
 #### The Kernel Trick
+
 The linear classifier relies on an inner product between vectors $K(x_i, x_j) = x_{i}^{T}x_j$. If every datapoint is mapped into high-dimensional space via some transformation $\Phi: x \rightarrow \phi(x)$, the inner product becomes $K(x_i, x_j) = \phi(x_i)^T \phi(x_j)$
 
 ```ad-note
 A kernel function is a function that is equivalent to an inner product in some feature space.
 ```
+
+## #Multiclass vs #Multilabel Classification
+
+### Multiclass
+
+In #multiclass #classification, each example has _exactly one_ label.
+
+### Multilabel
+
+In #multilabel #classification, each example has _zero or more_ labels.
+
+#### Applications
+
+Some examples of applications of multilabel classification could be video surveillance^[reidentification/tracking people between CCTV "scenes"], scene analysis^[visual localisation], image annotation, document topics and medical diagnoses.
+
+## Ranking Problems
+
+The training data for a ranking problem is a set of rankings where each ranking consists of a set of ranked examples.
+
+### Applications
+
+- Searching
+- Recommendations
+- Image captioning
+- Machine translation
+
+### A Black Box Approach
+
+Given a generic binary classifier, can we use it to solve the ranking problem?
+![[black-box-ranking.png]]
+
+```ad-problem
+How do we train a classifier that predicts preferences?
+```
+
+```ad-problem
+How do we turn the predicted preferences into a ranking?
+```
+
+#### Predicting 'Better' or 'Worse'
+
+To respond to the first of the above problems, we can train a classifier to decide if the first of a pair of inputs is better or werse than the second.
+
+```ad-example
+Consider all the possible pairings of the examples in a ranking. Label the pair as positive if the first example is higher ranked, and negative otherwise.
+![[ranking-better-vs-worse.png]]
+```
+
+```ad-problem
+Unfortunately, our binary classifier can only take one example as input at a time and we're trying to pass it two.
+```
+
+```ad-solution
+#Combined-Feature-Vectors are a great way of comparing two given examples, and there are many possible approaches to constructing them. Two of the most common of these are:
+- Difference
+	- $f_{i}^{'} = a_i - b_i$
+- Greater than/less than
+	- $f_{i}^{'}\ = 1\ if\ a_i \gt b_i,\ 0\ otherwise$
+```
+
+### The #Preference-Function
+
+Let's assume we have $N$ queries and $M$ samples in our training set. In its simplest form, the goal of ranking is to train a binary classifier to predict a #preference-function . Given a query $q$ and two samples $x_i$ and $x_j$, the classifier should predict whether $x_i$ should be preferred to $x_j$ with respect to the query $q$.
+
+```python
+def naiveRankTrain(RankingData, BinaryTrain):
+	D = []
+	for n in range(1, =N):
+		for all i, j in range(1, =M) and i != j:
+			if i.preferredTo(j).withQuery(n):
+				D.append(x[n][i][j], 1)
+			else:
+				D.append(x[n][i][j], -1)
+	return BinaryTrain(D)
+```
+
+```python
+def naiveRankTest(f, x):
+	score = [0] * M
+	for i, j in range(1, =M) and i != j:
+		y = f(x[i][j])
+		score[i] += y
+		score[j] -= y
+	return argSort(score)
+```
+
+### #Bipartite-Ranking
+
+The above algorithms are useful for #bipartite-ranking , a problem in which you are only ever trying to predict a binary response, for example "is this document relevant or not?". The only goal is to ensure that all the relevant documents are ahead of all the irrelevant documents; there is no notion that one relevant document is more relevant than another. For non-bipartite ranking problems more sophisticated methods can be used.
+
+This helps us improve on the example in the image in the above section "**Predicting 'Better' or 'Worse'**" like so
+![[bipartite-ranking-weighting.png]]
