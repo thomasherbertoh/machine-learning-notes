@@ -1,6 +1,6 @@
 ---
 date created: 2022-03-24 08:40
-date updated: 2022-04-14 15:47
+date updated: 2022-04-18 11:17
 tags:
   - '#online-learning'
   - '#Dimensionality'
@@ -423,3 +423,54 @@ The above algorithms are useful for #bipartite-ranking , a problem in which you 
 
 This helps us improve on the example in the image in the above section "**Predicting 'Better' or 'Worse'**" like so
 ![[bipartite-ranking-weighting.png]]
+
+### Ranking Improved
+
+If the preferences are more nuanced than "relevant or not" then we can incorporate these preferences at training time; we want to give a higher weight to binary problems that are very different in terms of preference to others.
+
+```ad-note
+Rather than producing a list of scores and then calling a sorting algorithm, we can actually use the preference function as the sorting function.
+```
+
+Define a ranking as a function $\sigma$ that maps the objects^[documents] we are ranking to the desired position in the list; $1, 2, ..., M$. If $\sigma_u \lt \sigma_v$ then $u$ is preferred to $v$, i.e., it appears earlier on the ranked document list.
+
+Given data with observed rankings $\sigma$, our goal is to learn to predict rankings for new objects, $\sigma^*$. We define $\Sigma_M$ as the set of all ranking functions over $M$ objects.
+
+We want to model the fact that making a mistake on some pairs is worse than making a mistake on others, so we define a cost function $\omega$, where $\omega(i, j)$ is the cost for accidentally putting something in position $j$ when it should have gone in position $i$. A valid cost function $\omega$ must be:
+
+- Symmetric
+  - $\omega(i, j) = \omega(j, i)$
+- Monotonic
+  - If $i \lt j \lt k$ or $i \gt j \gt k$ then $\omega(i, j) \le \omega(i, k)$
+- Satisfy the triangle inequality
+  - $\omega(i, j) + \omega(j, k) \ge \omega(i, k)$
+
+Depending on the problem the cost function may be defined in different ways. If $\omega(i, j) = 1$ whenever $i \ne j$, it simply counts the number of pairwise misordered items.
+
+````ad-note
+We can impose only the top K predictions as being correct:
+$\omega(i, j) = 1\ if\ min(i, j) \le K\ and\ i \ne j,\ otherwise\ 0$
+
+```ad-example
+This is particularly useful in web search algorithms, which may only display up to $K=10$ results to the user at a time.
+```
+````
+
+Error could be calculated like so: $\mathbb{E}_{(x, \sigma) \sim D}[\sum_{u \ne v}1[\sigma_u \lt \sigma_v]1[\hat{\sigma}_v \lt \hat{\sigma}_u] \omega(\sigma_u, \sigma_v)]$ where $\hat\sigma = f(x)$. This means that if the true ranking $\sigma$ prefers $u$ to $v$, but the predicted ranking $\hat\sigma$ prefers $v$ to $u$, then you incur a cost of $\omega(\sigma_u, \sigma_v)$.
+
+```python
+def rankTrain(D_rank, omega, binaryTrain):
+	D_bin = []
+	for (x, sigma) in D_rank:
+		for u != v:
+			y = SIGN(sigma_v - sigma_u)
+			w = omega(sigma_u, sigma_v)
+			D_bin.append(y, w, x_uv)
+	return binaryTrain(D_bin)
+```
+
+At test time, instead of predicting scores and then sorting the list, we can simply run the quicksort algorithm using the learnt function as a comparison function. In practice at each step a pivot $p$ is chosen, and every object $u$ is compared to $p$ using the learnt function and sorted to the left or right accordingly.
+
+```ad-note
+The difference between this algorithm and quicksort is that our comparison function is probabilistic.
+```
