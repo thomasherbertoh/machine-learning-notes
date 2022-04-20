@@ -1,6 +1,6 @@
 ---
 date created: 2022-03-10 08:46
-date updated: 2022-03-25 09:38
+date updated: 2022-04-20 08:24
 tags:
   - '#Tasks'
   - '#task'
@@ -25,6 +25,9 @@ tags:
   - '#assumption'
   - '#Bias'
   - '#K-NN'
+  - '#Bootstrap'
+  - '#Bagging'
+  - '#bootstrap'
 ---
 
 # Machine Learning Basics
@@ -192,3 +195,16 @@ Knowing the model beforehand can drastically improve not only the learning speed
 ### #Bias
 
 #Bias is a measure of how strong the assumptions on a model are. Low-bias classifiers (such as #K-NN or decision trees) make minimal/no #assumptions about the data, whereas high-bias classifiers make strong #assumptions about the data.
+
+## #Bootstrap Aggregation
+
+```ad-definition
+title: #Bootstrap Sampling
+Given a set $D$ containing $N$ training examples, create $D^{'}$ by drawing $N$ samples at random with replacement from $D$.
+```
+
+### #Bagging
+
+- Create $k$ #bootstrap datasets $D_i$
+- Train distinct classifier on each $D_i$
+- Classify new example by majority vote/average
