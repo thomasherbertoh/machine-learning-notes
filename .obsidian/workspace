@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Models/Decision Trees.md",
+            "file": "Models/Neural Networks.md",
             "mode": "source",
             "backlinks": false
           }
@@ -22,7 +22,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Models/Decision Trees.md",
+            "file": "Models/Neural Networks.md",
             "mode": "preview",
             "backlinks": false
           }
@@ -67,7 +67,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 186
+    "width": 159.5
   },
   "right": {
     "id": "afcedd4cca7b768c",
@@ -83,7 +83,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Models/Decision Trees.md",
+                "file": "Models/Neural Networks.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,15 +103,15 @@
   },
   "active": "4ce8acf3a3442c33",
   "lastOpenFiles": [
-    "Models/Decision Trees.md",
-    "Instructors.md",
-    "Models/Linear Models.md",
-    "Notation.md",
-    "Machine Learning Basics.md",
-    "Images/gradient-descent-learning-rate.png",
+    "Models/Neural Networks.md",
     "Algorithms/Perceptron.md",
+    "Models/Decision Trees.md",
+    "Machine Learning Basics.md",
+    "Models/Linear Models.md",
+    "Instructors.md",
+    "Notation.md",
+    "Images/gradient-descent-learning-rate.png",
     "Images/learning-linear-classifier-0.png",
-    "Optional Knowledge.md",
-    "Introduction.md"
+    "Optional Knowledge.md"
   ]
 }

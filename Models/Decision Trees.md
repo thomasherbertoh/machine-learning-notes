@@ -1,6 +1,6 @@
 ---
 date created: 2022-04-18 11:44
-date updated: 2022-04-20 08:36
+date updated: 2022-04-20 09:05
 tags:
   - '#decision-tree'
   - '#Decision-Trees'
@@ -12,6 +12,7 @@ tags:
   - '#bootstrapped'
   - '#bootstrap'
   - '#regression'
+  - '#classification'
 ---
 
 # Decision Trees
