@@ -1,6 +1,6 @@
 ---
 date created: 2022-04-21 10:46
-date updated: 2022-04-27 16:25
+date updated: 2022-04-28 10:07
 tags:
   - '#neural-network'
   - '#neural-networks'
@@ -12,6 +12,8 @@ tags:
   - '#Back-propagation'
   - '#cost-function'
   - '#RELU'
+  - '#convolutional-neural-network'
+  - '#convolution'
 ---
 
 # Neural Networks
@@ -154,11 +156,12 @@ As part of this function isn't linear there is no closed-form solution, meaning 
 We now need to evaluate the derivative of $L$ on a single example which, using the simple linear model for output $\hat y = \sum_j w_j x_{ij}$, can be done like so: $\frac{\partial L(x_i)}{\partial w_j} = (\hat y_i - y_i)x_{ij}$ where $\hat y_i - y_i$ is the error of the model.
 
 #### Step 3 - #Back-propagation
+
 The output of a unit with activation function $h$ like in the image below can be calculated as $z_t = h(\sum_j{w_{jt} z_j})$ where $t$ refers to the layer of the network the unit belongs to.
 
 ![[back-propagation-unit-activation.png]]
 
-In forward propagation, we calculate $a_t = \sum_j{w_{jt} z_j}$ for each unit. The loss $L$ then depends on $w_{jt}$ only through the use of $a_t$: $$\frac{\partial L}{\partial w_{jt}} = \frac{\partial L}{\partial a_t} \frac{\partial a_t}{\partial w_{jt}} = \frac{\partial L}{\partial a_t}z_j$$
+In forward propagation, we calculate $a_t = \sum_j{w_{jt} z_j}$ for each unit. The loss $L$ then depends on $w_{jt}$ only through the use of $a_t$: $\frac{\partial L}{\partial w_{jt}} = \frac{\partial L}{\partial a_t} \frac{\partial a_t}{\partial w_{jt}} = \frac{\partial L}{\partial a_t}z_j$
 
 ```ad-note
 Note that $\frac{\partial a_t}{\partial w_{jt}} = \frac{\partial\sum_j{w_{jt} z_j}}{\partial w_{jt}}$
@@ -166,4 +169,81 @@ Note that $\frac{\partial a_t}{\partial w_{jt}} = \frac{\partial\sum_j{w_{jt} z_
 
 In the final equation $\frac{\partial L}{\partial w_{jt}} = \frac{\partial L}{\partial a_t}z_j$ we can set the variable $\delta_t = \hat y - y$, which is the linear activation of the output unit.
 
-In the case of a hidden unit $t$ sending output to units in the set $S$, we have the following: $$\delta_t = \sum_{s \in S}{\frac{\partial L}{\partial a_s}\frac{\partial a_s}{\partial a_t}} = h^{'}(a_t)\sum_{s \in S}{w_{ts}\delta_s}$$ where $a_s = \sum_{j : j \rightarrow s}{w_{js}h(a_j)}$.
+In the case of a hidden unit $t$ sending output to units in the set $S$, we have the following: $\delta_t = \sum_{s \in S}{\frac{\partial L}{\partial a_s}\frac{\partial a_s}{\partial a_t}} = h^{'}(a_t)\sum_{s \in S}{w_{ts}\delta_s}$ where $a_s = \sum_{j : j \rightarrow s}{w_{js}h(a_j)}$.
+
+## Gradient
+
+The gradient is the vector of partial derivatives with respect to all the coordinates of the weights: $\Delta_w L = [\frac{\partial L}{\partial w_1}\frac{\partial L}{\partial w_2}...\frac{\partial L}{\partial w_M}]$
+
+Each partial derivative measures how fast the loss changes in one direction, so when the gradient is zero^[all the partial derivatives are zero] the loss is not changing in any direction.
+
+```ad-problem
+title: Problems
+This approach suffers from the classic problems of local minima and saddle points.
+```
+
+## Optimisation Methods Based on Gradient Descent
+
+### Batch Gradient Descent
+
+````ad-abstract
+title: Algorithm
+```python
+def BSD(eta_k, w):
+	while stopping criteria not met:
+		# compute gradient estimate over N examples
+```
+$$g \leftarrow \frac{1}{N}\Delta_w \sum_{i=1}^{N} L(f(x_i; w), y_i)$$
+```python
+		# Apply update
+```
+$$w \leftarrow w - \eta_k g$$
+````
+
+The learning rate changes at each step, and typically decays linearly. This means that gradient estimates are stable, but for each update we need to calculate gradients over the entire training set.
+
+### Stochastic Gradient Descent
+
+````ad-abstract
+title: Algorithm
+```python
+def SGD(eta_k, w):
+	while stopping criteria not met:
+		# Take one point from training set
+```
+$$(x_i, y_i)\ for\ some\ i$$
+```python
+		# Compute gradient estimate
+```
+$$g \leftarrow \Delta_w L(f(x_i; w), y_i)$$
+```python
+		# Apply update
+```
+$$w \leftarrow w - \eta_k g$$
+````
+
+While SGD logically gets to the same final result as BGD, the path it takes to get there is drastically different. As we are taking a single point from the training set to base our gradient estimate on, we don't generally know exactly which direction the endpoint is in despite always making progress in one dimension or another. The result of this is that the path we take isn't optimal, and appears sporadic in comparison to the path that BGD takes.
+
+![[BGD-vs-SGD.png]]
+
+### Adaptive Learning Rate Methods
+
+A problem with the methods explained above is that we assign the same learning rate to every feature, which isn't a good idea if the features vary in importance.
+
+```ad-note
+The learning rate is one of the most difficult to set hyperparameters in neural networks.
+```
+
+![[adaptive-learning-rate-methods.png]]
+
+## Convolutional Neural Networks
+
+A #convolutional-neural-network is a #neural-network that uses #convolution instead of matrix multiplication in at least one of its layers.
+
+### Convolution
+#Convolution is a general purpose filter operation for images. It works by determining the value of a central pixel by adding the weighted values of all its neighbours together. The matrix of these weights is called a kernel matrix. The output is a new, modified, filtered image.
+
+$$S(i, j) = (I * K)(i, j) = \sum_m \sum_n I(m, n)K(i-m, j-n)$$^[where $I$ refers to the image and $K$ refers to the kernel matrix]
+
+We can use this commutative operation to smooth, sharpen, or even enhance images. The following kernels could be used for line detection:
+![[convolutional-kernals-line-detection.png]]
