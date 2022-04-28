@@ -54,7 +54,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "regularisation",
+                "query": "back-propagation",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,

@@ -1,6 +1,6 @@
 ---
 date created: 2022-04-21 10:46
-date updated: 2022-04-22 15:13
+date updated: 2022-04-27 16:25
 tags:
   - '#neural-network'
   - '#neural-networks'
@@ -120,3 +120,50 @@ Here we can see a #RELU with equation $h = max(0, x)$.
 In the case of a #RELU , the gradient is always either $0$ or $1$, making it similar to linear units and therefore easy to optimise as they give large and consistent gradients when active.
 
 Unfortunately, they're not differentiable everywhere, although this isn't really a problem in practice as we can return one-sided derivatives at $z = 0$^[gradient-based optimisation is prone to numerical error anyway].
+
+A large problem is that the units die when the gradient is $0$^[saturation], which people have tried to resolve by using the sigmoid^[$h(x) = \frac{1}{1+e^{-x}}$] and hyperbolic tangent^[$h(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}}$] functions, but they suffer from the same problem in that they saturate across most of the domain and are only strongly sensitive when the input is close to zero.
+
+### Back-propagation Continued
+
+#### Key Ideas
+
+For #back-propagation we need error derivatives for all the weights in the net.
+
+```ad-example
+This is a possible formula for the weights of the first layer: $$w_{11}^{(1)} = w_{11}^{(1)} - \eta \frac{\partial L}{\partial w_{11}^{(1)}}$$
+```
+
+From the training data we can't tell what the hidden units should do, but we can compute how quickly the overall error of the network changes when we change a hidden activity. Each hidden unit can affect many output units and have various effects on the error, which we then combine.
+
+```ad-note
+Computing error derivatives for hidden units is very efficient. Once we have error derivatives for a given hidden activity it's easy to get error derivatives for the weights leading to the said hidden activity.
+```
+
+#### Step 1 - Feedforward
+
+Given the following neural network, a formula to represent it's output $\hat y$ given input $x$ and weights $w$ could be: $\hat y(x; w) = f(\sum_{j=1}^{m}{w_j^{(2)}h(\sum_{i=1}^{d}{w_{ij}^{(1)}x_i}\ +\ w_{0j})}\ +\ w_0^{(2)})$ where $f$ and $h$ are functions.
+
+![[back-propagation-feedforward.png]]
+
+#### Step 2 - Computing the Error and Training
+
+The error of the network on the training set is $L(X; w) = \sum_{i=1}^{N}\frac{1}{2}(y_i - \hat y(x_i; w))^2$.
+
+As part of this function isn't linear there is no closed-form solution, meaning we have to resort to gradient-descent for the training.
+
+We now need to evaluate the derivative of $L$ on a single example which, using the simple linear model for output $\hat y = \sum_j w_j x_{ij}$, can be done like so: $\frac{\partial L(x_i)}{\partial w_j} = (\hat y_i - y_i)x_{ij}$ where $\hat y_i - y_i$ is the error of the model.
+
+#### Step 3 - #Back-propagation
+The output of a unit with activation function $h$ like in the image below can be calculated as $z_t = h(\sum_j{w_{jt} z_j})$ where $t$ refers to the layer of the network the unit belongs to.
+
+![[back-propagation-unit-activation.png]]
+
+In forward propagation, we calculate $a_t = \sum_j{w_{jt} z_j}$ for each unit. The loss $L$ then depends on $w_{jt}$ only through the use of $a_t$: $$\frac{\partial L}{\partial w_{jt}} = \frac{\partial L}{\partial a_t} \frac{\partial a_t}{\partial w_{jt}} = \frac{\partial L}{\partial a_t}z_j$$
+
+```ad-note
+Note that $\frac{\partial a_t}{\partial w_{jt}} = \frac{\partial\sum_j{w_{jt} z_j}}{\partial w_{jt}}$
+```
+
+In the final equation $\frac{\partial L}{\partial w_{jt}} = \frac{\partial L}{\partial a_t}z_j$ we can set the variable $\delta_t = \hat y - y$, which is the linear activation of the output unit.
+
+In the case of a hidden unit $t$ sending output to units in the set $S$, we have the following: $$\delta_t = \sum_{s \in S}{\frac{\partial L}{\partial a_s}\frac{\partial a_s}{\partial a_t}} = h^{'}(a_t)\sum_{s \in S}{w_{ts}\delta_s}$$ where $a_s = \sum_{j : j \rightarrow s}{w_{js}h(a_j)}$.
