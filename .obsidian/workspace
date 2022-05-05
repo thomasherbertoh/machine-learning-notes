@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Models/Neural Networks.md",
+            "file": "Unsupervised Learning.md",
             "mode": "source",
             "backlinks": false
           }
@@ -22,7 +22,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Models/Neural Networks.md",
+            "file": "Unsupervised Learning.md",
             "mode": "preview",
             "backlinks": false
           }
@@ -54,7 +54,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "back-propagation",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -83,7 +83,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Models/Neural Networks.md",
+                "file": "Unsupervised Learning.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,15 +103,15 @@
   },
   "active": "4ce8acf3a3442c33",
   "lastOpenFiles": [
+    "Unsupervised Learning.md",
+    "Models/Decision Trees.md",
+    "Supervised Learning.md",
+    "Introduction.md",
+    "Machine Learning Basics.md",
     "Models/Neural Networks.md",
     "Algorithms/Perceptron.md",
-    "Models/Decision Trees.md",
-    "Machine Learning Basics.md",
     "Models/Linear Models.md",
     "Instructors.md",
-    "Notation.md",
-    "Images/gradient-descent-learning-rate.png",
-    "Images/learning-linear-classifier-0.png",
-    "Optional Knowledge.md"
+    "Notation.md"
   ]
 }
