@@ -104,10 +104,10 @@
   "active": "4ce8acf3a3442c33",
   "lastOpenFiles": [
     "Unsupervised Learning.md",
-    "Models/Decision Trees.md",
     "Supervised Learning.md",
-    "Introduction.md",
     "Machine Learning Basics.md",
+    "Models/Decision Trees.md",
+    "Introduction.md",
     "Models/Neural Networks.md",
     "Algorithms/Perceptron.md",
     "Models/Linear Models.md",
