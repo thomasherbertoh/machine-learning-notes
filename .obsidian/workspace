@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Unsupervised Learning.md",
+            "file": "Reinforcement Learning.md",
             "mode": "source",
             "backlinks": false
           }
@@ -22,7 +22,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Unsupervised Learning.md",
+            "file": "Reinforcement Learning.md",
             "mode": "preview",
             "backlinks": false
           }
@@ -83,7 +83,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Unsupervised Learning.md",
+                "file": "Reinforcement Learning.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,6 +103,7 @@
   },
   "active": "4ce8acf3a3442c33",
   "lastOpenFiles": [
+    "Reinforcement Learning.md",
     "Unsupervised Learning.md",
     "Supervised Learning.md",
     "Machine Learning Basics.md",
@@ -111,7 +112,6 @@
     "Models/Neural Networks.md",
     "Algorithms/Perceptron.md",
     "Models/Linear Models.md",
-    "Instructors.md",
-    "Notation.md"
+    "Instructors.md"
   ]
 }

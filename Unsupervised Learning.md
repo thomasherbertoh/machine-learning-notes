@@ -1,6 +1,6 @@
 ---
 date created: 2022-03-08 10:29
-date updated: 2022-05-17 11:07
+date updated: 2022-05-18 09:59
 tags:
   - '#clusters'
   - '#Clustering'
@@ -192,11 +192,13 @@ The generator might learn to perfectly generate a few examples from the training
 
 If the discriminator is very successful it leaves the generator with little gradient to learn from.
 
-#### Several #GANs 
-More GAN-like models can be constructed by considering different divergences between probabilities:
-- #GANs build on Bergmann divergences
-- Wasserstein #GANs use the Wasserstein metric
+#### Several #GANs
 
-#GANs and #VAEs ^[Variational AutoEncoders] can be combined (VAE-GAN)
+More GAN-like models can be constructed by considering different divergences between probabilities:
+
+- #GANs build on Bergmann divergences.
+- Wasserstein #GANs use the Wasserstein metric.
+
+#GANs and #VAEs ^[Variational AutoEncoders] can be combined (VAE-GAN).
 
 Conditional #GANs exist that work akin to continual VAEs.
