@@ -17,7 +17,7 @@ tags:
 
 # Perceptron
 
-Perceptron is a simple machine learning #algorithm based on a ![[Linear Models|#linear-model]]
+Perceptron is a simple machine learning #algorithm based on a linear model.
 
 ## Algorithm
 
