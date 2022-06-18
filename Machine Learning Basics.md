@@ -184,7 +184,7 @@ $$E_{reg}(f_w;D_n) = \frac{1}{n}\sum_{i=1}^{n}[f_w(x_i) - y_i]^2 + \frac{\lambda
 
 Increasing the amount of (good) data we feed our #algorithm  can only improve its performance. In fact, as seen in the example, it can be a good way of forcing our model to fit the curve better even if the degree of the curve we're creating is suboptimal.
 ![[curve-fitting-generalisation.png]]
-Formally, $E(f; D_n) \rightarrow E(f;p_{data})$ as $n \rightarrow \infty$, that is "as the amount of data increases, the error on the training set tends towards the error the model would get on the actual data".
+Formally, $E(f; D_n) \rightarrow E(f;p_{data})$ as $n \rightarrow \infty$, that is "as the amount of training data increases, the error on the training set tends towards the error the model would get on the actual data".
 
 ## #Assumptions
 
