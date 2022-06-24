@@ -4,12 +4,12 @@
     "type": "split",
     "children": [
       {
-        "id": "4ce8acf3a3442c33",
+        "id": "0de58e571ca280d9",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Models/Linear Models.md",
+            "file": "Reinforcement Learning.md",
             "mode": "preview",
             "backlinks": false
           }
@@ -40,7 +40,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "margin",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -69,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Models/Linear Models.md",
+                "file": "Reinforcement Learning.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -87,17 +87,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "4ce8acf3a3442c33",
+  "active": "0de58e571ca280d9",
   "lastOpenFiles": [
-    "Models/Linear Models.md",
-    "Models/Neural Networks.md",
-    "Models/Decision Trees.md",
-    "Algorithms/K-Nearest Neighbour.md",
-    "Algorithms/Perceptron.md",
-    "Unsupervised Learning.md",
-    "Supervised Learning.md",
     "Reinforcement Learning.md",
-    "README.md",
-    "Optional Knowledge.md"
+    "Supervised Learning.md",
+    "Unsupervised Learning.md",
+    "Machine Learning Basics.md",
+    "Compiled/Introduction.pdf",
+    "Introduction.md",
+    "Notation.md",
+    "Optional Knowledge.md",
+    "Models/Linear Models.md",
+    "Lazy vs. Eager Learning.md"
   ]
 }

@@ -63,7 +63,7 @@ The discount factor controls the importance of the future rewards versus the imm
 - Get input $x$, sampled from an i.i.d^[independent and identically distributed] data distribution
 - Use model with parameters $w$ to predict output $y$
 - Observe target output $y_i$ and loss $l(w, x_i, y_i)$
-- Update $w$ to reduce loss with SGD^[stochastic gradient descent] $w \leftarrow w - \eta \triangledown l(w, x_i, y_i)$^[unsure what the '$\triangledown$' is meant to mean]
+- Update $w$ to reduce loss with SGD^[stochastic gradient descent] $w \leftarrow w - \eta \triangledown l(w, x_i, y_i)$^[where $\triangledown$ is the gradient]
 
 ### #Reinforcement-learning Loop
 

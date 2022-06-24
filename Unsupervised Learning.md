@@ -41,7 +41,7 @@ There are several situations in which it could be applied, such as:
 
 ### K-Means Clustering
 
-Given data points $X =[x_1, ..., x_n] \in \mathbb{R}^{d \times n}$, pix a number of clusters $k$ and find a partition of data points into $k$ sets minimising the variation within each set: $\min_{C_1, ..., C_k}\sum_{j = 1}^{k}V(C_j)$
+Given data points $X =[x_1, ..., x_n] \in \mathbb{R}^{d \times n}$, pick a number of clusters $k$ and find a partition of data points into $k$ sets minimising the variation within each set: $\min_{C_1, ..., C_k}\sum_{j = 1}^{k}V(C_j)$
 The variation $V(C_j)$ is typically given by $\sum_{i \in C_j}||x_i - \mu_j||^2$ and the centroid $\mu_j$ is computed with $\frac{1}{|C_j|}\sum_{i \in C_j} x_i$.
 
 #### Properties
@@ -59,7 +59,7 @@ Idea:
 2. Centroid computation - The mean of a set of values minimises the squared error.
 ```
 
-It is not, on the other hand, guaranteed to find the global minimum; only a local one.
+It is not, on the other hand, guaranteed to find the global minimum of the loss function; only a local one.
 
 ```ad-question
 title: Does this mean that k-means will always find the minimum loss/clustering?
@@ -131,7 +131,7 @@ Find a probability estimation $f \in \Delta(Z)$ that fits the data, where $z \in
 
 #### Implicitly
 
-Find a function $f \in Z^{\Omega}$ that generates data $f(\omega) \in Z$ from an input $\omega$ sampled from some predefined distribution $p_{\omega} \in \Delta(\Omega)$ in a way that the distribution of generated samplse fits the (unknown) data distribution $p_{data} \in \Delta(Z)$
+Find a function $f \in Z^{\Omega}$ that generates data $f(\omega) \in Z$ from an input $\omega$ sampled from some predefined distribution $p_{\omega} \in \Delta(\Omega)$ in a way that the distribution of generated samples fits the (unknown) data distribution $p_{data} \in \Delta(Z)$
 
 #### Objective
 
