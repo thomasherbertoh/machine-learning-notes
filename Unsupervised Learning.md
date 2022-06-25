@@ -141,7 +141,7 @@ Define a hypothesis space $H \subset \Delta(Z)$ of models that can represent pro
 
 #Autoencoders are a way of compressing high-dimensional data into a lower-dimensional representation by compressing the data given in input such that meaningful factors of variations in the data are preserved.
 
-Encoders can be trained using decoders mapping the representation back to the input domain yielding $\hat x$ (reconstruction), so the encoder "autoencodes" its input^[We would have an encoder taking input $x$ and producing output $\omega$, and then the decoder that takes $\omega$ as input and generates $\hat x$, an approximation of $x$]. The objective is to minimise the divergence between the input $x$ and the reconstruction $\hat x$. Once we have finished training we no longer need the encoder as its only use was to help us estimate the encoder. The encoder can now be used to initialise or precompute features for supervised models.
+Encoders can be trained using decoders mapping the representation back to the input domain yielding $\hat x$ (reconstruction), so the encoder "autoencodes" its input^[We would have an encoder taking input $x$ and producing output $\omega$, and then the decoder that takes $\omega$ as input and generates $\hat x$, an approximation of $x$]. The objective is to minimise the divergence between the input $x$ and the reconstruction $\hat x$. Once we have finished training we no longer need the decoder as its only use was to help us estimate the encoder. The encoder can now be used to initialise or precompute features for supervised models.
 
 ```ad-question
 title: Is an #autoencoder a #generative-model ?

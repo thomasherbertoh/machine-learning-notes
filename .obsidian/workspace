@@ -9,7 +9,11 @@
         "state": {
           "type": "markdown",
           "state": {
+<<<<<<< Updated upstream
             "file": "Reinforcement Learning.md",
+=======
+            "file": "Algorithms/K-Nearest Neighbour.md",
+>>>>>>> Stashed changes
             "mode": "preview",
             "backlinks": false
           }
@@ -69,7 +73,11 @@
             "state": {
               "type": "backlink",
               "state": {
+<<<<<<< Updated upstream
                 "file": "Reinforcement Learning.md",
+=======
+                "file": "Algorithms/K-Nearest Neighbour.md",
+>>>>>>> Stashed changes
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -89,6 +97,7 @@
   },
   "active": "0de58e571ca280d9",
   "lastOpenFiles": [
+<<<<<<< Updated upstream
     "Reinforcement Learning.md",
     "Supervised Learning.md",
     "Unsupervised Learning.md",
@@ -99,5 +108,17 @@
     "Optional Knowledge.md",
     "Models/Linear Models.md",
     "Lazy vs. Eager Learning.md"
+=======
+    "Algorithms/K-Nearest Neighbour.md",
+    "Reinforcement Learning.md",
+    "Models/Decision Trees.md",
+    "Supervised Learning.md",
+    "Unsupervised Learning.md",
+    "Models/Linear Models.md",
+    "Models/Neural Networks.md",
+    "Algorithms/Perceptron.md",
+    "README.md",
+    "Optional Knowledge.md"
+>>>>>>> Stashed changes
   ]
 }
